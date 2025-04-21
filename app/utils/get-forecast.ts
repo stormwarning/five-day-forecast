@@ -10,7 +10,7 @@ import { getOffsetDate } from './get-offset-date'
 const API_KEY = 'fcde858e23a19e3c13f197324fe6af53'
 
 export async function getForecast(city?: string) {
-	if (!city) notFound()
+	if (!city) return
 
 	const response = await fetch(
 		`https://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}&q=${city}&units=metric`,

@@ -104,3 +104,7 @@ export interface ForecastResponse {
 	list: Forecast[]
 	city: City
 }
+
+export type ForecastWithFormattedDate = Forecast & {
+	dt_formatted: string
+}
