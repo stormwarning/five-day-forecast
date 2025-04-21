@@ -7,13 +7,11 @@ import { formatTemperature } from '../utils/format-temperature'
 
 export async function CityForecast({ city }: { city?: string }) {
 	const forecast = await getForecast(city)
+
 	if (!forecast) return
 
-	const today = forecast.list['0']?.[0]
-
-	const future = Object.keys(forecast.list)
-		.slice(1, 5)
-		.map((key) => forecast.list[key])
+	const today = forecast.list[0]?.[0]
+	const future = forecast.list.slice(0, 5)
 
 	return (
 		<>
@@ -38,7 +36,7 @@ export async function CityForecast({ city }: { city?: string }) {
 					</thead>
 					<tbody>
 						{future.map((day, index) => (
-							<FutureForecast forecast={day} key={index} />
+							<FutureForecast key={index} forecast={day} index={index} />
 						))}
 					</tbody>
 				</table>

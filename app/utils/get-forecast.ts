@@ -30,11 +30,16 @@ export async function getForecast(city?: string) {
 	const today = new Date()
 	const groupedForecasts = Object.groupBy(newForecasts, (forecast) => {
 		const forecastDate = getOffsetDate(forecast.dt, data.city.timezone)
-		return differenceInCalendarDays(forecastDate, today)
+		return String(differenceInCalendarDays(forecastDate, today))
 	})
+	/**
+	 * Group into an array of arrays instead of keys for cases where the
+	 * current day for the location is a day ahead of the user's local time.
+	 */
+	const forecastArrays = Object.keys(groupedForecasts).map((key) => groupedForecasts[key])
 
 	return {
 		...data,
-		list: groupedForecasts,
+		list: forecastArrays,
 	}
 }
