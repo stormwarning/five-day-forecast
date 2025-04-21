@@ -1,0 +1,7 @@
+.forecast {
+	font-family: var(--font-geist-sans);
+
+	& pre {
+		font-family: var(--font-geist-mono);
+	}
+}
