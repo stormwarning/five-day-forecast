@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import { CityForecast } from '~app/components/city-forecast'
+import { SelectCity } from '~app/components/select-city'
 import { getForecast } from '~app/utils/get-forecast'
 
 import styles from './page.module.css'
@@ -27,6 +28,7 @@ export default async function Home({ searchParams }: Props) {
 		<article className={styles.page}>
 			<header className={styles.header}>
 				<div className={styles.headerContent}>Five Day Forecast</div>
+				<SelectCity />
 			</header>
 			<div className={styles.content}>
 				{city ? (
