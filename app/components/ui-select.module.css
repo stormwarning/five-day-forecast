@@ -23,7 +23,7 @@
 	}
 
 	&[data-focus] {
-		outline: 2px solid white;
+		outline: 2px solid #2cccff;
 		outline-offset: 2px;
 	}
 
