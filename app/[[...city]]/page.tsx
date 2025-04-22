@@ -8,12 +8,12 @@ import { getForecast } from '~app/utils/get-forecast'
 import styles from './page.module.css'
 
 interface Props {
-	params?: Promise<{ slug: string }>
+	params: Promise<{ city: string }>
 	searchParams: Promise<{ city: string | undefined }>
 }
 
-export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-	const { city } = await searchParams
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { city } = await params
 	const forecast = await getForecast(city)
 
 	return {
@@ -21,14 +21,16 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 	}
 }
 
-export default async function Home({ searchParams }: Props) {
-	const { city } = await searchParams
+export default async function Home({ params }: Props) {
+	const { city } = await params
 
 	return (
 		<article className={styles.page}>
 			<header className={styles.header}>
-				<div className={styles.headerContent}>Five Day Forecast</div>
-				<SelectCity />
+				<div className={styles.title}>
+					5 <span>Day</span> Forecast
+				</div>
+				<SelectCity currentCity={city ?? ''} />
 			</header>
 			<div className={styles.content}>
 				{city ? (
