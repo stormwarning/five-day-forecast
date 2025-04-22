@@ -20,7 +20,7 @@ export async function getForecast(city?: string) {
 	)
 	const data = (await response.json()) as ForecastResponse
 
-	if (!data) notFound()
+	if (!data || data.cod !== '200') notFound()
 
 	const newForecasts = data.list.map((forecast) => ({
 		...forecast,
