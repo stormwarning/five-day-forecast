@@ -1,4 +1,14 @@
 :root {
+	--grey-100: #f1f2f2;
+	--grey-200: #e7ebed;
+	--grey-300: #dee4e8;
+	--grey-400: #c0c8cd;
+	--grey-500: #949ca1;
+	--grey-600: #62696d;
+	--grey-700: #393e41;
+	--grey-800: #202326;
+	--grey-900: #16191b;
+
 	--font-size-00: 0.5rem;
 	--font-size-0: 0.75rem;
 	--font-size-1: 0.875rem;
@@ -10,14 +20,14 @@
 	--font-size-7: 3rem;
 	--font-size-8: 3.5rem;
 
-	--background: #ffffff;
-	--foreground: #171717;
+	--background: var(--grey-100);
+	--foreground: var(--grey-900);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+		--background: var(--grey-900);
+		--foreground: var(--grey-200);
 	}
 }
 
