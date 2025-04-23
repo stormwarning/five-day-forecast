@@ -18,6 +18,10 @@
 	border-radius: 0.5rem;
 	background-color: light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255 / 0.05));
 
+	&:hover {
+		background-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1));
+	}
+
 	&:focus-visible {
 		outline: none;
 	}

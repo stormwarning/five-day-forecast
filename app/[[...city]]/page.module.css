@@ -1,6 +1,6 @@
 .page {
 	display: grid;
-	grid-template-rows: 20px 1fr 20px;
+	grid-template-rows: auto 1fr;
 	align-items: center;
 	justify-items: center;
 	min-height: 100svh;
@@ -10,7 +10,6 @@
 
 	@media (max-width: 600px) {
 		padding: 32px 16px;
-		padding-bottom: 80px;
 	}
 }
 
@@ -29,6 +28,9 @@
 
 .title {
 	display: flex;
+	flex-wrap: wrap;
+	gap: 0 0.25ch;
+	line-height: 1.125;
 
 	& span {
 		font-weight: 700;
@@ -39,6 +41,7 @@
 .content {
 	display: grid;
 	grid-template-columns: 1fr;
+	gap: 3rem;
 	inline-size: 100%;
 	block-size: 100%;
 
