@@ -27,7 +27,11 @@ export async function getForecast(city?: string) {
 		dt_formatted: formatTimestamp(forecast.dt, data.city.timezone),
 	}))
 
-	const today = new Date()
+	/**
+	 * Use the earliest forecast as "today" for cases where the current day for
+	 * the location is a day ahead of the user's local time.
+	 */
+	const today = getOffsetDate(data.list[0]?.dt, data.city.timezone)
 	const groupedForecasts = Object.groupBy(newForecasts, (forecast) => {
 		const forecastDate = getOffsetDate(forecast.dt, data.city.timezone)
 		return String(differenceInCalendarDays(forecastDate, today))

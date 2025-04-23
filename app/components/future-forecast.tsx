@@ -1,18 +1,19 @@
 import { ForecastWithFormattedDate } from '~/types/ForecastResponse'
 import { formatTemperature } from '../utils/format-temperature'
+import { getOffsetDate } from '../utils/get-offset-date'
 
 interface Props {
 	index: number
+	timezoneOffset: number
 	forecast?: ForecastWithFormattedDate[]
 }
 
-export function FutureForecast({ forecast, index }: Props) {
+export function FutureForecast({ forecast, index, timezoneOffset }: Props) {
 	if (!forecast) return null
 
 	const sortedForecast = forecast.sort((a, b) => a.main.temp - b.main.temp)
-	const day = new Intl.DateTimeFormat('en-CA', { weekday: 'short' }).format(
-		new Date(sortedForecast[0].dt_formatted),
-	)
+	const date = getOffsetDate(sortedForecast[0].dt, timezoneOffset)
+	const day = new Intl.DateTimeFormat('en-CA', { weekday: 'short' }).format(new Date(date))
 
 	return (
 		<tr>

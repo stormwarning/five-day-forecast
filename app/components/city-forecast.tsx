@@ -36,7 +36,12 @@ export async function CityForecast({ city }: { city?: string }) {
 					</thead>
 					<tbody>
 						{future.map((day, index) => (
-							<FutureForecast key={index} forecast={day} index={index} />
+							<FutureForecast
+								key={`${forecast.city.id}-${index}`}
+								forecast={day}
+								timezoneOffset={forecast.city.timezone}
+								index={index}
+							/>
 						))}
 					</tbody>
 				</table>
