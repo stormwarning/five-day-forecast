@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const forecast = await getForecast(city)
 
 	return {
-		title: forecast?.city.name,
+		title: city ? forecast?.city.name : undefined,
 	}
 }
 
