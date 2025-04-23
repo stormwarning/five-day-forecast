@@ -1,0 +1,11 @@
+.three {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+	grid-column: 2 / -2;
+
+	@media (min-width: 48rem) {
+		grid-template-columns: repeat(3, 1fr);
+		grid-column: 1 / -1;
+	}
+}

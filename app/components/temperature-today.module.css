@@ -1,0 +1,50 @@
+.today {
+	display: grid;
+	gap: 2rem;
+	align-content: start;
+
+	&:not(.small) {
+		grid-column: 1 / -1;
+
+		@media (min-width: 48rem) {
+			grid-column: 1 / 3;
+		}
+	}
+
+	& p {
+		font-size: var(--font-size-1);
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+
+		& var {
+			font-weight: 600;
+		}
+	}
+}
+
+.icon {
+	grid-area: 2 / 1;
+	mix-blend-mode: difference;
+	filter: invert(1);
+	translate: -4rem -3rem;
+
+	@media (prefers-color-scheme: dark) {
+		filter: invert(0);
+	}
+}
+
+.temperature {
+	position: relative;
+	grid-area: 2 / 1;
+	font-family: var(--font-geist-mono);
+	font-size: var(--font-size-8);
+	font-weight: 300;
+	line-height: 1;
+	/* text-align: center; */
+
+	& span {
+		font-family: var(--font-geist-sans);
+		opacity: 0.5;
+	}
+}

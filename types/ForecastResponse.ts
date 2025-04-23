@@ -44,7 +44,7 @@ interface Clouds {
 	all: number
 }
 
-interface City {
+export interface City {
 	/** City ID */
 	id: number
 	/** City name */

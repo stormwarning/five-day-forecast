@@ -31,21 +31,17 @@
 	flex-wrap: wrap;
 	gap: 0 0.25ch;
 	line-height: 1.125;
-
+	/*
 	& span {
 		font-weight: 700;
 		text-transform: uppercase;
-	}
+	} */
 }
 
 .content {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(4, 1fr);
 	gap: 3rem;
 	inline-size: 100%;
 	block-size: 100%;
-
-	@media (min-width: 48rem) {
-		grid-template-columns: 1fr 1fr;
-	}
 }

@@ -1,34 +1,12 @@
-.today {
-	display: grid;
-	gap: 2.75rem;
-	align-content: start;
-
-	& p {
-		font-size: var(--font-size-1);
-		font-weight: 500;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-
-		& var {
-			font-weight: 600;
-		}
-	}
-}
-
-.temperature {
-	font-family: var(--font-geist-mono);
-	font-size: var(--font-size-8);
-	font-weight: 300;
-	line-height: 1;
-	/* text-align: center; */
-
-	& span {
-		font-family: var(--font-geist-sans);
-		opacity: 0.5;
-	}
-}
-
 .forecast {
+	grid-row: 2;
+	grid-column: 1 / -1;
+
+	@media (min-width: 48rem) {
+		grid-row: 1;
+		grid-column: 3 / -1;
+	}
+
 	& h2 {
 		font-size: var(--font-size-1);
 		font-weight: 500;

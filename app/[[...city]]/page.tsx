@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Suspense } from 'react'
 
 import { CityForecast } from '~app/components/city-forecast'
+import { DefaultCity } from '~app/components/default-city'
 import { SelectCity } from '~app/components/select-city'
 import { getForecast } from '~app/utils/get-forecast'
 
@@ -27,9 +28,7 @@ export default async function Home({ params }: Props) {
 	return (
 		<article className={styles.page}>
 			<header className={styles.header}>
-				<div className={styles.title}>
-					5 <span>Day</span> Forecast
-				</div>
+				<div className={styles.title}>5-Day Forecast</div>
 				<SelectCity currentCity={city ?? ''} />
 			</header>
 			<div className={styles.content}>
@@ -38,7 +37,9 @@ export default async function Home({ params }: Props) {
 						<CityForecast city={city} />
 					</Suspense>
 				) : (
-					<p>No city selected.</p>
+					<Suspense fallback={<div>Loading...</div>}>
+						<DefaultCity />
+					</Suspense>
 				)}
 			</div>
 		</article>

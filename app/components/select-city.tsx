@@ -22,7 +22,7 @@ export function SelectCity({ currentCity = '' }: Props) {
 	return (
 		<form className={styles.form} action={handleSubmit}>
 			<UiSelect id="city" defaultValue={currentCity ?? ''} name="city" aria-label="Select city">
-				<option value="">City…</option>
+				<option value="">Select city…</option>
 				{CITIES.map((city) => (
 					<option key={city} value={city.toLowerCase()}>
 						{city}
